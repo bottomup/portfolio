@@ -21,6 +21,9 @@ jobs:
     - name: Build Blazor WebAssembly App
       run: dotnet publish ./BlazorApp/BlazorApp.csproj -c Release -o release
 
+    - name: Add CNAME file
+      run: echo "reussoftwaredevelopment.nl" > release/wwwroot/CNAME
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
       with:
