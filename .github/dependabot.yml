@@ -1,0 +1,23 @@
+version: 2
+updates:
+  # Update NuGet dependencies in your Blazor project
+  - package-ecosystem: "nuget"
+    directory: "/BlazorApp"        # adjust if your .csproj is deeper
+    schedule:
+      interval: "weekly"
+    groups:
+      core-libs:
+        patterns:
+          - "*"
+    open-pull-requests-limit: 5
+
+  # Keep GitHub Actions used in your workflow up to date
+  - package-ecosystem: "github-actions"
+    directory: "/"        # looks for workflow files in .github/workflows
+    schedule:
+      interval: "weekly"
+    groups:
+      actions:
+        patterns:
+          - "*"
+    open-pull-requests-limit: 5
